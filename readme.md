@@ -21,7 +21,7 @@ When developing a package for a [nanos world](https://nanos.world) server, you h
 
 ## Installation
 
-1. Clone the repository (or just copy `nanos_lua_refresh.py` and `requirements.txt` anywhere you like):
+1. Clone the repository (or just copy `lua_refresh.py` and `requirements.txt` anywhere you like):
 
    ```bash
    git clone <repository-url>
@@ -46,7 +46,7 @@ When developing a package for a [nanos world](https://nanos.world) server, you h
      "commands": [
        {
          "match": "\\.lua$",
-         "cmd": "python \"PATH\\TO\\nanos_lua_refresh.py\" \"${file}\"",
+         "cmd": "python \"PATH\\TO\\lua_refresh.py\" \"${file}\"",
          "isAsync": true
        }
      ]
@@ -66,5 +66,5 @@ The package is reloaded. You can follow what happens in VSCode's **Output** pane
 The script can also be run manually:
 
 ```bash
-python nanos_lua_refresh.py "...\Packages\my_package\Server\Index.lua"
+python lua_refresh.py "...\Packages\my_package\Server\Index.lua"
 ```
