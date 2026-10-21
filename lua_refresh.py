@@ -22,15 +22,6 @@ def print_info(message):
 def print_error(message):
     print(f"{BColors.FAIL}[Nanos Lua Refresh] {message}{BColors.ENDC}")
 
-if len(sys.argv) < 2:
-    print_error("Usage: python lua_refresh.py <file>")
-    sys.exit(1)
-
-file_path = sys.argv[1]
-if not os.path.isfile(file_path):
-    print_error(f"File not found: {file_path}")
-    sys.exit(1)
-
 async def get_package_name(folder_path):
     cooldown = 0
     while True:
@@ -95,6 +86,15 @@ async def send_command_to_process(process, command):
 
 
 async def main():
+    if len(sys.argv) < 2:
+        print_error("Usage: python lua_refresh.py <file>")
+        sys.exit(1)
+
+    file_path = sys.argv[1]
+    if not os.path.isfile(file_path):
+        print_error(f"File not found: {file_path}")
+        sys.exit(1)
+
     print_info(f"Searching for package folder starting from: {file_path}")
     package_folder = await get_package_name(os.path.dirname(file_path))
     if not package_folder:
@@ -109,4 +109,5 @@ async def main():
     print_success(f"Found Nanos World Server process with PID: {process.pid}")
     await send_command_to_process(process, f"{CMD_RELOAD} {package_folder}")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
