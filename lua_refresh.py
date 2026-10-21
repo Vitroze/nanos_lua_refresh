@@ -23,7 +23,7 @@ def print_error(message):
     print(f"{BColors.FAIL}[Nanos Lua Refresh] {message}{BColors.ENDC}")
 
 if len(sys.argv) < 2:
-    print_error("Usage: python nanos_lua_refresh.py <file>")
+    print_error("Usage: python lua_refresh.py <file>")
     sys.exit(1)
 
 file_path = sys.argv[1]
