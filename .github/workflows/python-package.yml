@@ -36,4 +36,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     - name: Check that the script compiles
-      run: python -m py_compile nanos_lua_refresh.py
+      run: python -m py_compile lua_refresh.py
